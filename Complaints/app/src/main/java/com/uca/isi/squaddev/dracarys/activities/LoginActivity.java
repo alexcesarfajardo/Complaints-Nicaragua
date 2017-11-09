@@ -121,19 +121,16 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<AccessToken> call, Response<AccessToken> response) {
                 if (response.body() != null) {
                     Log.i("access_token", response.body().getId());
-                 //   Remember.putString("access_token", response.body().getId(), new Remember.Callback() {
-                   //     @Override
-                 //       public void apply(Boolean success) {
-                        //    if (success) {
-                      //          Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    //            startActivity(intent);
-                  //              finish();
-                //            }
-              //          }
-                    //});
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    Remember.putString("access_token", response.body().getId(), new Remember.Callback() {
+                        @Override
+                        public void apply(Boolean success) {
+                            if (success) {
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }
+                    });
                 }
             }
 
