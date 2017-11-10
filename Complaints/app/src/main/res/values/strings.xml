@@ -18,6 +18,9 @@
     <string name="complaint_add_activity_button_create">Crear</string>
     <string name="login_email_text_view">Correo electrónico</string>
     <string name="login_password_text_view">Contraseña</string>
-    <string name="login_sign_up">Iniciar Sesión</string>
-    <string name="login_sign_in">Regístrate</string>
+    <string name="login_sign_up">Registrate</string>
+    <string name="login_sign_in">Iniciar Sesión</string>
+    <string name="sign_in_info">No tienes cuenta? Regístrate</string>
+    <string name="sign_up_info">Ya eres miembro? Inicia sesión</string>
+    <string name="login_username_texxt_view">Nombre de Usuario</string>
 </resources>
