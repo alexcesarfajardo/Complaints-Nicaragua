@@ -7,10 +7,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.JsonObject;
 import com.tumblr.remember.Remember;
 
 import retrofit2.Call;
@@ -26,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button signIn;
-    private TextView signUp;
+    private Button signUp;
 
 
     @Override
@@ -41,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         signIn = (Button) findViewById(R.id.sign_in);
-        signUp = (TextView) findViewById(R.id.sign_up);
+        signUp = (Button) findViewById(R.id.sign_up);
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,14 +64,19 @@ public class LoginActivity extends AppCompatActivity {
 
     private void signIn() {
         if (email.getText().toString().isEmpty()) {
-            email.setError("Ingrese un Usuario");
-            //Toast.makeText(getApplicationContext(), "Ingrese un correo electrónico", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Ingrese un correo electrónico", Toast.LENGTH_LONG).show();
         } else if(password.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Ingrese su contraseña", Toast.LENGTH_LONG).show();
         } else {
             loginRequest(email.getText().toString(), password.getText().toString());
         }
     }
+
+    /**
+     * Inicio de sesión y validación de campos vacíos cuando se presiona el botón de registrarse
+     */
+
+
 
     /**
      *  Solicitud http para login

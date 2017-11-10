@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tumblr.remember.Remember;
@@ -26,7 +25,6 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button signUp;
-    private TextView login;
 
 
     @Override
@@ -44,7 +42,6 @@ public class SignUpActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         signUp = (Button) findViewById(R.id.signUpButton);
-        login = (TextView) findViewById(R.id.link_login);
     }
 
     private void initActions(){
@@ -52,15 +49,6 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 signUp();
-            }
-        });
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-
             }
         });
     }
