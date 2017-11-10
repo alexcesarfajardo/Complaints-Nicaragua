@@ -11,6 +11,8 @@ import android.widget.Toast;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import com.tumblr.remember.Remember;
 import com.uca.isi.squaddev.dracarys.R;
 import com.uca.isi.squaddev.dracarys.api.Api;
 import com.uca.isi.squaddev.dracarys.models.Complaint;
@@ -71,7 +73,7 @@ public class ComplaintAddActivity extends AppCompatActivity {
             complaint.setEnabled(true);
 
             // this make http request to create an complaint
-            Call<Complaint> call = Api.instance().createComplaint(complaint);
+            Call<Complaint> call = Api.instance().createComplaint(Remember.getString("access_token", ""), complaint);
             call.enqueue(new Callback<Complaint>() {
                 @Override
                 public void onResponse(Call<Complaint> call, Response<Complaint> response) {

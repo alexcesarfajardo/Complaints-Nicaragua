@@ -15,6 +15,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import com.tumblr.remember.Remember;
 import com.uca.isi.squaddev.dracarys.R;
 import com.uca.isi.squaddev.dracarys.activities.ComplaintAddActivity;
 import com.uca.isi.squaddev.dracarys.adapters.ComplaintsAdapter;
@@ -57,12 +59,7 @@ public class ComplaintsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
-
-
-
-
-
-        Call<List<Complaint>> call = Api.instance().getComplaints();
+        Call<List<Complaint>> call = Api.instance().getComplaints(Remember.getString("access_token", ""));
         call.enqueue(new Callback<List<Complaint>>() {
             @Override
             public void onResponse(Call<List<Complaint>> call, Response<List<Complaint>> response) {
